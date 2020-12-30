@@ -321,6 +321,19 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+/* customizing */
+.tag-default {
+  margin-right: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: none;
+  color: var(--color-accent);
+  background: var(--color-primary);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 1rem;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {

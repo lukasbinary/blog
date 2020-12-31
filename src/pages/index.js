@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio />
       <div className="side-tags">
-        <ul style={{listStyleType: `none`}}>
+        <ul>
           {tags.map(tag => (
             <li key={tag.fieldValue}>
               <Link className="tag-default" to={`/tags/${kebabCase(tag.fieldValue)}/`}>

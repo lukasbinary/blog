@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -8,7 +9,8 @@ import Tags from "../components/tags"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.postsRemark.nodes
+  const tags = data.tagsGroup.group
 
   if (posts.length === 0) {
     return (
@@ -28,6 +30,23 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
+      <div style={{
+        position: `absolute`,
+        width: `10rem`,
+        height: `48rem`,
+        left: `-10rem`,
+        // background: `red`
+      }}>
+        <ul style={{listStyleType: `none`}}>
+          {tags.map(tag => (
+            <li key={tag.fieldValue}>
+              <Link className="tag-default" to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                {tag.fieldValue} ({tag.totalCount})
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -74,7 +93,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    postsRemark: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {
@@ -86,6 +105,12 @@ export const pageQuery = graphql`
           description
           tags
         }
+      }
+    }
+    tagsGroup: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }

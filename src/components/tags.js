@@ -11,9 +11,9 @@ const Tags = ({tags}) => {
     )
   })
   return (
-    <>
+    <div style={{margin: `1rem 0`}}>
       {tagsView}
-    </>
+    </div>
   )
 }
 

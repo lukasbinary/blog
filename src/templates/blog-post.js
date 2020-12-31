@@ -22,11 +22,11 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        <header className="global-header">
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          {post.frontmatter.date}<br></br>
+          <Tags tags={post.frontmatter.tags} />
         </header>
-        <Tags tags={post.frontmatter.tags} />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

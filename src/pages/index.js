@@ -30,13 +30,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      <div style={{
-        position: `absolute`,
-        width: `10rem`,
-        height: `48rem`,
-        left: `-10rem`,
-        // background: `red`
-      }}>
+      <div className="side-tags">
         <ul style={{listStyleType: `none`}}>
           {tags.map(tag => (
             <li key={tag.fieldValue}>

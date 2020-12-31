@@ -27,6 +27,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+  --spacing-40: 10rem;
   --fontFamily-custom-sans: "Nanum Gothic";
   --fontFamily-custom-serif: "Noto Serif KR";
   --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
@@ -346,6 +347,12 @@ a:focus {
   background: var(--color-text);
 }
 
+.side-tags {
+  position: absolute;
+  width: var(--spacing-40);
+  left: calc(var(--spacing-40) * -1);
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -356,5 +363,20 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+@media (max-width: 68rem) {
+  .side-tags {
+    width: var(--maxWidth-full);
+    position: inherit;
+  }
+
+  .side-tags ul {
+    list-style-type: none;
+  }
+
+  .side-tags ul>li {
+    display: inline;
   }
 }

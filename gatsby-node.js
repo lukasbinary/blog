@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
+  const tagTemplate = path.resolve(`./src/templates/posts.js`)
   const tags = result.data.tagsGroup.group
 
   tags.forEach(t => {

@@ -1,14 +1,14 @@
 import React from "react"
 import Posts from "../components/posts"
 
-const BlogIndex = ({ data, location }) => {
+const PostsTemplate = ({ data, location }) => {
   return <Posts data={data} location={location} />
 }
 
-export default BlogIndex
+export default PostsTemplate
 
 export const pageQuery = graphql`
-  query {
+  query($tag: String) {
     site {
       siteMetadata {
         title
@@ -16,6 +16,7 @@ export const pageQuery = graphql`
     }
     postsRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       nodes {
         excerpt

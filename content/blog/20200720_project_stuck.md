@@ -1,7 +1,8 @@
 ---
 title: Stuck 개발(삽질)일지 01 - POST로 FormData 전송하기
 date: '2020-07-29T00:00:00.000Z'
-tags: ["dotnet", "react", "c#", "javascript"]
+tags: ["dotnet", "react", "csharp", "javascript"]
+publish: false
 ---
 
 Html의 form으로 작성된 파일과 값들을 백엔드에 POST로 보내서 처리해야하는 상황. 기존에 작성해놨던 API로 그대로 받으려고 했더니... 역시나 안된다. 문제를 해결하는데 있어 주의해야 할 점을 정리해보자.

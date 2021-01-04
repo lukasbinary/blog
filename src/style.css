@@ -66,6 +66,7 @@
   --color-accent: #d1dce5;
 
   --color-white: white;
+  --color-light: #f1f1f1;
 }
 
 /* HTML elements */
@@ -232,7 +233,11 @@ table {
 }
 
 table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+table tbody tr td {
+  border-bottom: 1px solid var(--color-light);
 }
 
 /* Link */

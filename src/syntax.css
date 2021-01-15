@@ -1,3 +1,11 @@
 .token.operator {
   background: initial;
 }
+
+span {
+  color: #005b99;
+}
+
+span code[class*="language-"] {
+  color: inherit;
+}

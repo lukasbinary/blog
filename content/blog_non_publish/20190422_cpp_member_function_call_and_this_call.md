@@ -11,7 +11,7 @@ publish: false
 
 ## **멤버함수 호출과 this call**
 
-아래 코드는 Object라는 클래스를 생성하고 main에서 obj1과 obj2를 선언해 각자의 멤버함수를 호출하는 코드이다. Set함수 내부에서는 멤버변수에 접근하고 있는데 this가 생략되어 있다.
+아래 코드는 Object라는 클래스를 생성하고 main에서 obj1과 obj2를 선언해 각자의 멤버함수를 호출하는 코드다. Set함수 내부에서는 멤버변수에 접근하고 있는데 this가 생략되어 있다.
 
 ```cpp
 #include <iostream>

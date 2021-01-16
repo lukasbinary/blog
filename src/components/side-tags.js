@@ -6,13 +6,13 @@ const SideTags = ({ tags }) => {
   return (
     <div className="side-tags">
       <ul>
-        <li key="all-tags">
+        <li key="side-tag-all-tags">
           <Link className="tag-default" to={`/`}>
             all
           </Link>
         </li>
         {tags.map(tag => (
-          <li key={tag.fieldValue}>
+          <li key={`side-tag-${tag.fieldValue}`}>
             <Link className="tag-default" to={`/tags/${kebabCase(tag.fieldValue)}/`}>
               {tag.fieldValue} ({tag.totalCount})
             </Link>

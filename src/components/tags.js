@@ -5,7 +5,7 @@ import kebabCase from "lodash/kebabCase"
 const Tags = ({tags}) => {
   const tagsView = tags.map(t => {
     return (
-      <Link className="tag-default" to={`/tags/${kebabCase(t)}/`}>
+      <Link className="tag-default" to={`/tags/${kebabCase(t)}/`} key={t}>
         {t}
       </Link>
     )

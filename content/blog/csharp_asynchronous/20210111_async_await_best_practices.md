@@ -95,7 +95,7 @@ public async Task Button1ClickAsync()
 
 ## Aaync Void의 예외처리 문제 분석
 
-이 내용을 정확히 알기 위해서는 `async`와 `await`를 컴파일러가 어떻게 해석하는지를 먼저 알아야 한다. 위의 예제코드를 `IL`코드로 바꿔보면 `ThrowExceptionAsync`메소드는 다음처럼 된다.
+이 내용을 정확히 알기 위해서는 `async`와 `await`를 컴파일러가 어떻게 해석하는지를 먼저 알아야 한다. 위의 예제코드를 IL코드로 바꿔보면 `ThrowExceptionAsync`메소드는 다음처럼 된다.
 
 ```csharp
 class ThrowExceptionAsync_SM : IAsyncStateMachine // SM은 StateMachine 약자
@@ -128,7 +128,7 @@ void ThrowExceptionAsync()
 
 `MoveNext`메소드를 보자. `InvalidOperationException`예외가 `catch`에서 예외가 무사히 캐싱되는 것도 확인할 수 있다. 문제는 캐싱된 예외가 어떠한 형태로든 리턴될 때 넘어가야 하는데 리턴타입이 `void`라 어떤 것도 넘길 수 없다. 때문에 예외 처리는 여기서 끝나게 된다.
 
-이번엔 `async Task`로 바꿔서 다시 `IL`코드를 뽑아보자.
+이번엔 `async Task`로 바꿔서 다시 IL코드를 뽑아보자.
 
 ```csharp
 class ThrowExceptionAsync_SM : IAsyncStateMachine {} // 전과 동일
@@ -150,7 +150,7 @@ Task ThrowExceptionAsync()
 
 이제 예외를 제대로 처리할 수 있을까? 답은 "처리할 수 없다"이다. 예외가 캐싱된 `Task`가 리턴만 된 것이지 `Task`를 리턴할 때 예외가 발생하는 것은 아니기 때문이다.
 
-하지만, `async Task`로 바꿈으로 인해서 <span>**`await`와 조합이 가능**</span>해진다. `await`를 사용하려면 호출자도 `async`가 붙어야 한다. 수정한 후에 다시 `IL`코드를 뽑아보자.
+하지만, `async Task`로 바꿈으로 인해서 <span>**`await`와 조합이 가능**</span>해진다. `await`를 사용하려면 호출자도 `async`가 붙어야 한다. 수정한 후에 다시 IL코드를 뽑아보자.
 
 ```csharp
 void AsyncVoidExceptions_CannotBeCaughtByCatchAsync_SM.MoveNext()
@@ -202,5 +202,5 @@ void AsyncVoidExceptions_CannotBeCaughtByCatchAsync_SM.MoveNext()
 * `async void`는 위험하다
     * 예외처리가 힘들다
     * 그래서 테스트도 힘들다
-    * `await`, `Task.WhenAmny` 그리고 `Task.WhenAll` 등과 함께 사용할 수 없다
+    * `await`, `Task.WhenAny` 그리고 `Task.WhenAll` 등과 함께 사용할 수 없다
 * 비동기 이벤트 핸들러에는 `async void`를 사용하자

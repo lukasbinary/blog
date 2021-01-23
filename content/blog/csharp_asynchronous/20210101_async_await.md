@@ -26,7 +26,7 @@ class AsyncAwait
 
 ## async의 원리
 
-예제 코드의 `IL`코드를 보면 어떤 형태로 작동하는지 알 수 있다. `IL`코드를 그대로 보면 너무 길고 복잡해서 알아보기 쉽게 정리를 했다. 먼저 `async Task DelayAsync`메소드는 아래와 같은 형태가 된다.
+예제 코드의 IL코드를 보면 어떤 형태로 작동하는지 알 수 있다. IL코드를 그대로 보면 너무 길고 복잡해서 알아보기 쉽게 정리를 했다. 먼저 `async Task DelayAsync`메소드는 아래와 같은 형태가 된다.
 
 ```csharp
 Task DelayAsync(int ms)
@@ -114,11 +114,11 @@ class DelayAsyncStateMachine : IAsyncStateMachine
 
 작업이 완료되고 다시 `MoveNext`가 호출되면 남은 원본 코드가 실행된다. 이 때에는 다른 스레드에서 진행된다. 위 코드에서는 콘솔로그가 실행됐다. 이 때 발생한 예외는 `try/catch`로 처리 가능하다.
 
-최종적으로 `AsyncTaskMethodBuilder.SetResult`로 `Task`의 결과가 저장되어 비동기메소드를 호출한 부분에서 결과를 받아 볼 수 있게된다.
+최종적으로 `AsyncTaskMethodBuilder.SetResult`로 `Task`의 결과가 저장되어 비동기 메소드를 호출한 부분에서 결과를 받아 볼 수 있게된다.
 
 ## await의 원리
 
-이제 `await`가 무슨 일을 했는지 살펴보자. 원본 코드에서 `await`만 제거하고 다시 `dotPeek`을 이용해 `IL`코드를 살펴봤다. 사라진 부분을 통해서 `await`의 원리를 파악할 수 있다.
+이제 `await`가 무슨 일을 했는지 살펴보자. 원본 코드에서 `await`만 제거하고 다시 dotPeek을 이용해 IL코드를 살펴봤다. 사라진 부분을 통해서 `await`의 원리를 파악할 수 있다.
 
 ```csharp
 class DelayAsyncStateMachine : IAsyncStateMachine
@@ -169,7 +169,7 @@ class DelayAsyncStateMachine : IAsyncStateMachine
 
 ## IL코드
 
-지금까지 사용했던 코드의 `IL`코드를 그대로 추가했다. 아래 코드들을 해석하려면 마이크로소프트의 다음 [문서](https://docs.microsoft.com/ko-kr/dotnet/api/system.reflection.emit.opcodes?view=net-5.0)를 참고하면 된다. 
+지금까지 사용했던 코드의 IL코드를 그대로 추가했다. 아래 코드들을 해석하려면 마이크로소프트의 다음 [문서](https://docs.microsoft.com/ko-kr/dotnet/api/system.reflection.emit.opcodes?view=net-5.0)를 참고하면 된다. 
 
 <details markdown="1">
 <summary>DelayAsync메소드 IL코드</summary>

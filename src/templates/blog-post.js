@@ -18,7 +18,6 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Toc headings={post.headings} />
       <article
         className="blog-post"
         itemScope
@@ -29,6 +28,7 @@ const BlogPostTemplate = ({ data, location }) => {
           {post.frontmatter.date}<br></br>
           <Tags tags={post.frontmatter.tags} />
         </header>
+        <Toc headings={post.headings} />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

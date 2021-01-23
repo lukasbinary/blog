@@ -2,17 +2,20 @@ import React from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Toc = ({ headings }) => {
+  const items = headings.map(h => {
+    return (
+      <div className={`toc-list-item depth-${h.depth}`} onClick={() => scrollTo(`#${h.id}`)}>
+        {h.value}
+      </div>
+    )
+  })
+
   return (
     <div className="toc">
-      <ul>
-        {headings.map(heading => {
-          return (
-            <li key={heading.id} onClick={() => scrollTo(`#${heading.id}`)}>
-              {heading.value}
-            </li>
-          )
-        })}
-      </ul>
+      <div className="toc-header">TABLE OF CONTENTS</div>
+      <div>
+        {items}
+      </div>
     </div>
   )
 }

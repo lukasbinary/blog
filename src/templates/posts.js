@@ -17,7 +17,7 @@ export const pageQuery = graphql`
     }
     postsRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } publish: { ne: false } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       nodes {
         excerpt
@@ -29,7 +29,6 @@ export const pageQuery = graphql`
           title
           description
           tags
-          publish
         }
       }
     }

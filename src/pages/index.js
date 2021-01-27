@@ -17,7 +17,6 @@ export const pageQuery = graphql`
     }
     postsRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { publish: { ne: false } } }
     ) {
       nodes {
         excerpt

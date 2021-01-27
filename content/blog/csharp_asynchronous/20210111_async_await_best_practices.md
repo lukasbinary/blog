@@ -2,7 +2,6 @@
 title: C# Async/Await - Best Practices in Asynchronous Programming
 date: '2021-01-11T13:03:00.000Z'
 tags: ["csharp", "async", "await"]
-publish: true
 ---
 
 [Concurrency in C# Cookbook, 2nd Edition](https://www.oreilly.com/library/view/concurrency-in-c/9781492054498/)을 읽어보던 중 강력히 추천하는 글이 있어서 찾아봤다. 내용이 상당히 괜찮아 보여서 공부할겸 정리해봤다. 책보다 내용이 더 어려웠던거는 함정. 원본은 [여기](https://docs.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming#avoid-async-void)서 볼 수 있다.

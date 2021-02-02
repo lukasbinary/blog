@@ -2,6 +2,7 @@ import React from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Toc = ({ headings }) => {
+  const todHeader = headings.length ? <div className="toc-header">TABLE OF CONTENTS</div> : null
   const items = headings.map(h => {
     return (
       <div className={`toc-list-item depth-${h.depth}`} onClick={() => scrollTo(`#${h.id}`)}>
@@ -12,7 +13,7 @@ const Toc = ({ headings }) => {
 
   return (
     <div className="toc">
-      <div className="toc-header">TABLE OF CONTENTS</div>
+      {todHeader}
       <div>
         {items}
       </div>

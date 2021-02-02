@@ -53,12 +53,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const series = post.fields.slug.slice(1, post.fields.slug.length - 1).split("/").filter((_, i, a) => i < a.length - 1)
 
       createPage({
         path: post.fields.slug,
         component: blogPost,
         context: {
           id: post.id,
+          series: series.length ? `/${series.join("/")}/*` : post.id,
           previousPostId,
           nextPostId,
         },
@@ -128,6 +130,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      series: String
     }
 
     type Fields {

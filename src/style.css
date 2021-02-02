@@ -416,6 +416,19 @@ a:focus {
   padding-left: var(--spacing-8);
 }
 
+.series-item {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.series-item.current {
+  color: var(--color-text);
+}
+
+.series-item:hover {
+  color: var(--color-text);
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {

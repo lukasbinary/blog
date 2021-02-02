@@ -4,13 +4,14 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Series from "../components/series"
 import Tags from "../components/tags"
 import Toc from "../components/toc"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+  const { previous, next, series } = data
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -27,6 +28,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           {post.frontmatter.date}<br></br>
           <Tags tags={post.frontmatter.tags} />
+          <Series current={post.id} series={series} />
         </header>
         <Toc headings={post.headings} />
         <section
@@ -75,6 +77,7 @@ export const pageQuery = graphql`
     $id: String!
     $previousPostId: String
     $nextPostId: String
+    $series: String
   ) {
     site {
       siteMetadata {
@@ -116,5 +119,21 @@ export const pageQuery = graphql`
         title
       }
     }
+    series: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+      filter: { fields: { slug: { glob: $series } } }
+    ) {
+      nodes {
+        id
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+
   }
 `

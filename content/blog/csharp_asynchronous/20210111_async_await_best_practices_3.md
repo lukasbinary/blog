@@ -1,6 +1,6 @@
 ---
 title: C# Async/Await - Best Practices in Asynchronous Programming 3
-date: '2021-01-18T13:03:00.000Z'
+date: '2021-01-25T13:03:00.000Z'
 tags: ["csharp", "async", "await"]
 ---
 

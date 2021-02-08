@@ -4,7 +4,7 @@ date: '2021-01-01T13:03:00.000Z'
 tags: ["csharp", "async", "await"]
 ---
 
-`.NET Framework 4.5`에 `async`와 `await`가 추가되면서 `Asynchronous Programming`을 보다 쉽게 작성할 수 있게 됐다. 문제는 잘 사용하기에는 쉽지 않다는 것. `.NET`환경에서 `async`와 `await`에 대해 정리해보자.
+.NET Framework 4.5에 *async*와 `await`가 추가되면서 `Asynchronous Programming`을 보다 쉽게 작성할 수 있게 됐다. 문제는 잘 사용하기에는 쉽지 않다는 것. `.NET`환경에서 `async`와 `await`에 대해 정리해보자.
 
 <!-- end -->
 

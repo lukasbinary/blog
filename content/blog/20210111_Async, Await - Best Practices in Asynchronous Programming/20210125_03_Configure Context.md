@@ -1,10 +1,10 @@
 ---
-title: C# Async/Await - Best Practices in Asynchronous Programming 3
+title: Async/Await - Best Practices in Asynchronous Programming 3편 - Configure Context
 date: '2021-01-25T13:03:00.000Z'
 tags: ["csharp", "async", "await"]
 ---
 
-*Async/Await - Best Practices in Asynchronous Programming* 시리즈의 마지막이다. 지난 포스트(*Async all the wat*)에 이어 세 번째 규칙 *Configure Context*를 정리해보자.
+*Async/Await - Best Practices in Asynchronous Programming* 시리즈의 세 번째 규칙 *Configure Context*를 정리해보자. 이제 다 끝나간다.
 
 <!-- end -->
 

@@ -1,5 +1,5 @@
 ---
-title: C# Async/Await - Best Practices in Asynchronous Programming
+title: Async/Await - Best Practices in Asynchronous Programming 1편 - Avoid Async Void
 date: '2021-01-11T13:03:00.000Z'
 tags: ["csharp", "async", "await"]
 ---

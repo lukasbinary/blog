@@ -3,7 +3,7 @@ module.exports = {
     title: `Lukasbinary Blog`,
     author: {
       name: `Lukasbinary`,
-      summary: `이것저것 만져보며 쓸데없는 것들을 만들고 있다.`,
+      summary: `방향을 못 정하고 10년째 방황 중. 궁금한게 많아 여기저기 기웃거리는 중이다. 평생 그럴 듯. 술과 수다를 좋아한다.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,

@@ -263,7 +263,7 @@ a:focus {
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
+  margin-bottom: var(--spacing-12);
 }
 
 .global-header {
@@ -383,12 +383,10 @@ a:focus {
 .toc .toc-list-item {
   border-left: var(--spacing-1)solid var(--color-primary);
   padding: var(--spacing-1) 0 var(--spacing-1) var(--spacing-3);
-  transition: 0.15s;
-  transition-timing-function: linear;
+  transition: 0.25s;
 }
 
 .toc .toc-list-item:hover {
-  border-left: var(--spacing-2) solid var(--color-text);
   color: var(--color-primary);
   cursor: pointer;
 }
@@ -445,6 +443,7 @@ a:focus {
 @media (max-width: 68rem) {
   .side-tags {
     width: var(--maxWidth-full);
+    margin-bottom: var(--spacing-20);
     position: inherit;
   }
 
